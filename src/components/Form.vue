@@ -1,21 +1,21 @@
 <template>
-    <form class="form">
-        <div class="email">
+    <form @submit.prevent="handleSubmit" class="form">
+        <div class="email" >
             <label for="email">Email:</label>
             <br>
-            <input type="text" id="email">
+            <input type="text" id="email" v-model="email">
         </div>
 
         <div class="password">
             <label for="password">Password:</label>
             <br>
-            <input type="password" id="password">
+            <input type="password" id="password" v-model="password">
         </div>
 
         <div class="profession">
             <label for="profession">Role:</label>
             <br>
-            <select id="profession" value="">
+            <select id="profession" value="" v-model="role">
                 <option value="developer">Web Developer</option>
                 <option value="designer">Web Designer</option>
             </select>
@@ -24,21 +24,41 @@
         <div class="skills">
             <label for="skill">Skills:</label>
             <br>
-            <input type="text" id="skill">
+            <input type="text" id="skill" v-model="tempSkill">
         </div>
 
         <div class="agree">
-            <input class="check" id="check" type="checkbox"> 
+            <input class="check" id="check" type="checkbox" v-model="check"> 
             <label for="check">I agree with all your requirments</label>
         </div>
 
         <br>
         <button>Create an account</button>
+
+        <div>
+            {{email}}
+            <br>
+            {{password}}
+            <br>
+            {{role}}
+            <br>
+            {{tempSkill}}
+        </div>
     </form>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            email:"",
+            password:"",
+            role:"",
+            check:true,
+            skills:[],
+            tempSkill:""
+        }
+    }
 
 }
 </script>
