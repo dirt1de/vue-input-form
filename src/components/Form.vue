@@ -23,20 +23,26 @@
 
     <div class="skills">
       <label for="skill">Top 3 Skills: (seperate by ",")</label>
-      <br />
+      <br>
       <input type="text" id="skill" v-model="tempSkill" @keyup="addSkill" />
-      <span v-for="skill in skills" :key="skill.key">
-        {{ skill.skillName }}
-      </span>
+
+      <div v-if="skills.length">
+        <span v-for="skill in skills" :key="skill.key">
+          {{ skill.skillName }}
+        </span>
+        <br>
+        <br>
+      </div>
     </div>
-    <br />
     <div class="agree">
       <input class="check" id="check" type="checkbox" v-model="check" />
       <label for="check">I agree with all your requirments</label>
     </div>
 
     <br />
-    <button :class="{disabled:!check}" :disabled="!check">Create an account</button>
+    <button :class="{ disabled: !check }" :disabled="!check">
+      Create an account
+    </button>
   </form>
 </template>
 
@@ -62,10 +68,9 @@ export default {
           });
           this.tempSkill = "";
         }
-      }
-      else{
+      } else {
         alert("Please enter your top THREE skills!");
-        this.tempSkill=""
+        this.tempSkill = "";
       }
     },
     handleSubmit() {
@@ -147,7 +152,7 @@ span {
   padding: 10px;
 }
 
-.disabled{
-    background-color: rgb(176, 213, 255);
+.disabled {
+  background-color: rgb(176, 213, 255);
 }
 </style>
