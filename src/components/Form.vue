@@ -77,7 +77,7 @@ export default {
       console.log(this.email);
       console.log(this.password);
       console.log(this.role);
-      console.log(this.skills.target);
+      console.log(this.skills);
       this.init();
     },
     init() {
